@@ -103,7 +103,7 @@ namespace DisposableMail
             request.AddParameter("f", "fetch_email");
             request.AddParameter("email_id", MailID);
             var result = Execute<Fetch_Email>(request);
-            SessionID = result.SessionID;
+            SessionID = result.sid_token;
             return result;
         }
     }

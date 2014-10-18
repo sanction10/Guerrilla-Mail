@@ -1,16 +1,18 @@
-﻿using NUnit.Framework;
+﻿using DisposableMail.Functions;
+using NUnit.Framework;
 
-namespace DisposableMail
+namespace DisposableMail.Tests
 {
     [SetUpFixture]
     class SetUp
     {
-        internal static GuerrillaMail mail = new GuerrillaMail("127.0.0.1", "Visual Studio");
-
+        public static GuerrillaMail Mail = new GuerrillaMail("127.0.0.1", "Visual Studio");
+        public static Mail FirstMail;
         [SetUp]
         public void RunBeforeAnyTests()
         {
-            mail.GetEmailAddress();
+            Mail.GetEmailAddress();
+            FirstMail = Mail.CheckEmail(0).MailList[0];
         }
     }
 }

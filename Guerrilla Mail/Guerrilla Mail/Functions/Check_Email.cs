@@ -30,7 +30,7 @@ namespace DisposableMail.Functions
         public string MailExcerpt { get; set; }
 
         [DeserializeAs(Name = "mail_id")]
-        public object MailID { get; set; }
+        public int MailID { get; set; }
 
         [DeserializeAs(Name = "att")]
         public string ATT { get; set; }
