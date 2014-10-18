@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functions\Check_Email.cs" />
+    <Compile Include="Functions\Fetch_Email.cs" />
+    <Compile Include="Functions\Get_Email_Address.cs" />
+    <Compile Include="Functions\Set_Email_User.cs" />
     <Compile Include="Guerrilla Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
