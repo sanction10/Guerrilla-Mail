@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GuerrillaMail.Functions
+namespace DisposableMail.Functions
 {
     /// <summary>
     /// {"alias_error":"","alias":"sivfd+p9dy2hc","email_addr":"test@guerrillamailblock.com","email_timestamp":1413294259,"site_id":1,"sid_token":"n02s2jtdgnlqlceicbde09reh6","auth":{"success":true,"error_codes":[]}}

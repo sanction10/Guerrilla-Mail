@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GuerrillaMail.Functions
+namespace DisposableMail.Functions
 {
     public class Fetch_Email
     {

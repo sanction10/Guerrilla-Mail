@@ -1,11 +1,11 @@
-﻿using GuerrillaMail.Functions;
+﻿using DisposableMail.Functions;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GuerrillaMail
+namespace DisposableMail
 {
     public class GuerrillaMail
     {
