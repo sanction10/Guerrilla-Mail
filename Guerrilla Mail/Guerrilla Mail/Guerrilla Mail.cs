@@ -1,9 +1,6 @@
 ﻿using DisposableMail.Functions;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DisposableMail
 {
@@ -103,7 +100,7 @@ namespace DisposableMail
             request.AddParameter("f", "fetch_email");
             request.AddParameter("email_id", MailID);
             var result = Execute<Fetch_Email>(request);
-            SessionID = result.sid_token;
+            SessionID = result.SessionID;
             return result;
         }
     }
