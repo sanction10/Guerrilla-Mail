@@ -46,6 +46,10 @@ namespace DisposableMail.Functions
         [DeserializeAs(Name = "sid_token")]
         public String SessionID { get; set; }
 
+        /// <summary>
+        /// Session Token
+        /// </summary>
+        [DeserializeAs(Name = "auth")]
         // Unknown
         public Auth Authentication { get; set; }
 

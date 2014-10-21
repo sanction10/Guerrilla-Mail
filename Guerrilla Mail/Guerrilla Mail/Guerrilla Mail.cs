@@ -9,9 +9,9 @@ namespace DisposableMail
         public String IP { get; set; }
         public String UserAgent { get; set; }
         public String Email { get; private set; }
-        public String SessionID { get; private set; }
+        public String SessionId { get; private set; }
 
-        RestClient Client = new RestClient { BaseUrl = "https://api.guerrillamail.com/ajax.php" };
+        readonly RestClient _client = new RestClient { BaseUrl = "https://api.guerrillamail.com/ajax.php" };
 
         public GuerrillaMail(String ip, String useragent)
         {
@@ -24,10 +24,10 @@ namespace DisposableMail
             request.AddParameter("ip", IP);
             request.AddParameter("agent", UserAgent);
 
-            if (!String.IsNullOrEmpty(SessionID))
-                request.AddParameter("sid_token", SessionID);
+            if (!String.IsNullOrEmpty(SessionId))
+                request.AddParameter("sid_token", SessionId);
 
-            var response = Client.Execute<T>(request);
+            var response = _client.Execute<T>(request);
             if (response.ErrorException != null)
                 throw response.ErrorException;
             return response.Data;
@@ -48,7 +48,7 @@ namespace DisposableMail
             request.AddParameter("lang", lang);
             request.AddParameter("domain", domain);
             var result = Execute<Get_Email_Address>(request);
-            SessionID = result.SessionID;
+            SessionId = result.SessionID;
             return result;
         }
 
@@ -67,7 +67,7 @@ namespace DisposableMail
             request.AddParameter("lang", lang);
             request.AddParameter("domain", domain);
             var result = Execute<Set_Email_User>(request);
-            SessionID = result.SessionID;
+            SessionId = result.SessionID;
             return result;
         }
 
@@ -83,24 +83,36 @@ namespace DisposableMail
             request.AddParameter("f", "check_email");
             request.AddParameter("seq", seq);
             var result = Execute<Check_Email>(request);
-            SessionID = result.SessionID;
+            SessionId = result.SessionID;
             return result;
         }
-
-        //get_email_list
-
+        
         /// <summary>
         /// Get the contents of an email.
         /// </summary>
-        /// <param name="MailID"></param>
+        /// <param name="mailId"></param>
         /// <returns></returns>
-        public Fetch_Email FetchEmail(Int32 MailID)
+        public Fetch_Email FetchEmail(Int32 mailId)
         {
             var request = new RestRequest();
             request.AddParameter("f", "fetch_email");
-            request.AddParameter("email_id", MailID);
+            request.AddParameter("email_id", mailId);
             var result = Execute<Fetch_Email>(request);
-            SessionID = result.SessionID;
+            SessionId = result.SessionID;
+            return result;
+        }
+
+        /// <summary>
+        /// Delete a email from the server
+        /// </summary>
+        /// <param name="emailId"></param>
+        /// <returns></returns>
+        public Del_Email DeleteEmail(Int32 emailId)
+        {
+            var request = new RestRequest();
+            request.AddParameter("f", "del_email");
+            request.AddParameter("email_ids[]", emailId);
+            var result = Execute<Del_Email>(request);
             return result;
         }
     }

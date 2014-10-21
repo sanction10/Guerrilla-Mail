@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions\Check_Email.cs" />
+    <Compile Include="Functions\Del_Email.cs" />
     <Compile Include="Functions\Fetch_Email.cs" />
     <Compile Include="Functions\Get_Email_Address.cs" />
     <Compile Include="Functions\Set_Email_User.cs" />
