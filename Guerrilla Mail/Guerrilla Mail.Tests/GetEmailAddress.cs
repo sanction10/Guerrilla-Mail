@@ -9,15 +9,15 @@ namespace DisposableMail.Tests
         [Test]
         public void Test_EmailAddress_Equal()
         {
-            var email1 = SetUp.Mail.GetEmailAddress().EmailAddress;
-            var email2 = SetUp.Mail.GetEmailAddress().EmailAddress;
+            var email1 = SetUp.Mail.GetEmailAddress().Address;
+            var email2 = SetUp.Mail.GetEmailAddress().Address;
             Assert.AreEqual(email1, email2);
         }
 
         [Test]
         public void Test_EmailAddress_NotEmpty()
         {
-            Assert.IsNotNullOrEmpty(SetUp.Mail.GetEmailAddress().EmailAddress);
+            Assert.IsNotNullOrEmpty(SetUp.Mail.GetEmailAddress().Address);
         }
 
         [Test]

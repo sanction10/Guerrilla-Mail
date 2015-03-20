@@ -1,9 +1,11 @@
 ﻿using System;
 using RestSharp.Deserializers;
+using System.Collections.Generic;
+using RestSharp;
 
-namespace DisposableMail.Functions
+namespace DisposableMail
 {
-    public class Fetch_Email
+    public class Email
     {
         [DeserializeAs(Name = "mail_from")]
         public string MailFrom { get; set; }
@@ -30,7 +32,10 @@ namespace DisposableMail.Functions
         public int MailId { get; set; }
 
         [DeserializeAs(Name = "att")]
-        public int Att { get; set; }
+        public int AttachmentsCount { get; set; }
+
+		[DeserializeAs(Name = "att_info")]
+		public List<AttachmentInfo> Attachments {get;set;}
 
         [DeserializeAs(Name = "content_type")]
         public string ContentType { get; set; }
@@ -55,6 +60,18 @@ namespace DisposableMail.Functions
 
         [DeserializeAs(Name = "auth")]
         public Auth Authentication { get; set; }
-
     }
+
+	public class AttachmentInfo 
+	{
+		//"att_info":[{"t":"image\/png","f":"Woman-Listening.png","p":"1.2"}]
+		[DeserializeAs(Name = "t")]
+		public string Type { get; set; }
+
+		[DeserializeAs(Name = "f")]
+		public string FileName { get; set; }
+
+		[DeserializeAs(Name = "p")]
+		public string Part { get; set; }
+	}
 }

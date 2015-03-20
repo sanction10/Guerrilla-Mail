@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using RestSharp.Deserializers;
 
-namespace DisposableMail.Functions
+namespace DisposableMail
 {
-    public class Del_Email
+    public class DeletedEmail
     {
         [DeserializeAs(Name = "deleted_ids")]
         public List<string> DeletedIDs { get; set; }

@@ -2,50 +2,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace DisposableMail.Functions
-{
-    public class Mail
-    {
-        [DeserializeAs(Name = "mail_from")]
-        public object MailFrom { get; set; }
-
-        [DeserializeAs(Name = "mail_timestamp")]
-        public string MailTimestamp { get; set; }
-
-        [DeserializeAs(Name = "mail_read")]
-        public string MailRead { get; set; }
-
-        [DeserializeAs(Name = "mail_date")]
-        public string MailDate { get; set; }
-
-        [DeserializeAs(Name = "reply_to")]
-        public object ReplyTo { get; set; }
-
-        [DeserializeAs(Name = "mail_subject")]
-        public object MailSubject { get; set; }
-
-        [DeserializeAs(Name = "mail_excerpt")]
-        public string MailExcerpt { get; set; }
-
-        [DeserializeAs(Name = "mail_id")]
-        public int MailID { get; set; }
-
-        [DeserializeAs(Name = "att")]
-        public string ATT { get; set; }
-
-        [DeserializeAs(Name = "content_type")]
-        public string ContentType { get; set; }
-
-        [DeserializeAs(Name = "mail_recipient")]
-        public string MailRecipient { get; set; }
-
-        [DeserializeAs(Name = "source_id")]
-        public int SourceId { get; set; }
-
-        [DeserializeAs(Name = "source_mail_id")]
-        public int SourceMailId { get; set; }
-    }
-    
+namespace DisposableMail
+{   
     public class Stats
     {
         [DeserializeAs(Name = "sequence_mail")]
@@ -72,10 +30,11 @@ namespace DisposableMail.Functions
         [DeserializeAs(Name = "error_codes")]
         public List<object> ErrorCodes { get; set; }
     }
-    public class Check_Email
+
+    public class Inbox
     {
         [DeserializeAs(Name = "list")]
-        public List<Mail> MailList { get; set; }
+        public List<Email> MailList { get; set; }
 
         [DeserializeAs(Name = "count")]
         public String Count { get; set; }
