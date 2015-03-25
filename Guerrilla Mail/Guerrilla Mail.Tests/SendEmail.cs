@@ -9,7 +9,8 @@ namespace DisposableMail.Tests
 		[Test]
 		public void Test_SendEmail_Success()
 		{
-			SetUp.Mail.SendEmail (SetUp.Mail.Email, "Testing Email", "Testing 1\rTesting 2");
+			var valid = SetUp.Mail.SendEmail (SetUp.Mail.Email, "Testing Email", "Testing 1\rTesting 2");
+			Assert.True (valid);
 		}
 	}
 }

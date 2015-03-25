@@ -35,7 +35,7 @@ namespace DisposableMail
 			
 			var response = (client != null ? client : _client).Execute<T>(request);
             if (response.ErrorException != null)
-	                throw response.ErrorException;
+                throw response.ErrorException;
 			
             return response.Data;
         }	
@@ -153,6 +153,7 @@ namespace DisposableMail
 
 			// alternative client to API
 			var client = new RestClient { BaseUrl = new Uri (WebUrl) };
+			request.AddCookie ("PHPSESSID", SessionId);
 
 			request.AddParameter("f", "send_email");
 
